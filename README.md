@@ -1,3 +1,2 @@
-# SCI FAA COVID-19 Analysis Project 
-
-## Area of Focus: Canada v.s. the US
+# Not uploaded yet 
+The files are still on my local machine
