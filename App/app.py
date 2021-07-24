@@ -8,7 +8,8 @@ st.set_page_config(page_title="COVID-19 Graph App", page_icon="📈", layout='wi
 st.markdown("""
 # Canda v.s. the US COVID-19 Analysis
 """)
-st.write('Comparing how metrics on how the countries dealt with the pandemic and measurment the damages caused')
+st.write('Comparing metrics on how the countries dealt with the pandemic')
+st.write('----')
 
 def main():
     combined = pd.read_csv('Data/out-data.csv')
