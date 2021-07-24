@@ -17,7 +17,7 @@ def main():
     combined = pd.read_csv('Data/out-data.csv')
 
     fig1 = px.line(combined, x='Date', y='Cases/Population', color='Country', title = "Cases per Person in the USA vs Canada", labels={'Cases/Population': 'Cases per Person'})
-    fig2 = px.line(combined, x='Date', y='Cases', color='Country', title = "Confirmed Cases Over Time in the USA vs Canada")
+    fig2 = px.line(combined, x='Date', y='Cases', color='Country', title = "Total Cases in the USA vs Canada (Simple)")
     fig3 = px.line(combined, x='Date', y='Deaths/Cases', color='Country', title = "Deaths per Case in the USA vs Canada", labels={'Deaths/Cases': 'Deaths per Case'})
     fig4 = px.line(combined, x='Date', y='Tests/Cases', color='Country', title = "Tests per Case in the USA vs Canada", labels={'Tests/Cases': 'Tests per Case'})
 
