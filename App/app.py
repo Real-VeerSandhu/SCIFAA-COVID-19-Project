@@ -3,21 +3,33 @@ import plotly.express as px
 import pandas as pd
 
 
+st.set_page_config(page_title="COVID-19 Graph App", page_icon="📈", layout='wide', initial_sidebar_state="collapsed")
 
 st.markdown("""
 # Canda v.s. the US COVID-19 Analysis
-Double Click for Original Zoom
 """)
 st.write('Comparing how metrics on how the countries dealt with the pandemic and measurment the damages caused')
 
+def main():
+    combined = pd.read_csv('Data/out-data.csv')
 
-combined = pd.read_csv('Data/out-data.csv')
+    fig1 = px.line(combined, x='Date', y='Cases/Population', color='Country', title = "Cases per Person in the USA vs Canada", labels={'Cases/Population': 'Cases per Person'})
+    fig2 = px.line(combined, x='Date', y='Cases', color='Country', title = "Confirmed Cases Over Time in the USA vs Canada")
+    fig3 = px.line(combined, x='Date', y='Deaths/Cases', color='Country', title = "Deaths per Case in the USA vs Canada", labels={'Deaths/Cases': 'Deaths per Case'})
+    fig4 = px.line(combined, x='Date', y='Tests/Cases', color='Country', title = "Tests per Case in the USA vs Canada", labels={'Tests/Cases': 'Tests per Case'})
 
-fig0 = px.line(combined, x='Date', y='Cases/Population', color='Country', template = "plotly_dark", title = "Cases per Person in the USA vs Canada", labels={'Cases/Population': 'Cases per Person'})
-fig1 = px.line(combined, x='Date', y='Deaths/Cases', color='Country', template = "plotly_dark", title = "Deaths per Case in the USA vs Canada", labels={'Deaths/Cases': 'Deaths per Case'})
-fig2 = px.line(combined, x='Date', y='Tests/Cases', color='Country', template = "plotly_dark", title = "Tests per Case in the USA vs Canada", labels={'Tests/Cases': 'Tests per Case'})
 
-st.plotly_chart(fig0)
-st.plotly_chart(fig1)
-st.plotly_chart(fig2)
+    col1, col2 = st.beta_columns([1,1])
+    with col1:
+        st.plotly_chart(fig1)
+    with col2:
+        st.plotly_chart(fig2)
 
+    col3, col4 = st.beta_columns([1,1])
+    with col3:
+        st.plotly_chart(fig3)
+    with col4:
+        st.plotly_chart(fig4)
+
+if __name__ ==  '__main__':
+    main()
