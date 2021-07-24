@@ -6,7 +6,7 @@ import pandas as pd
 st.set_page_config(page_title="COVID-19 Graph App", page_icon="📈", layout='wide', initial_sidebar_state="collapsed")
 
 st.markdown("""
-# Canda v.s. the US COVID-19 Analysis
+# Canda v.s. USA COVID-19 Analysis
 """)
 st.write("""
         [Full Project](https://github.com/Real-VeerSandhu/SCIFAA-COVID-19-Project)
