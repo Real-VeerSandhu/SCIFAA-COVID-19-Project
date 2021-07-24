@@ -8,7 +8,9 @@ st.set_page_config(page_title="COVID-19 Graph App", page_icon="📈", layout='wi
 st.markdown("""
 # Canda v.s. the US COVID-19 Analysis
 """)
-st.write('Comparing metrics on how the countries dealt with the pandemic')
+st.write("""
+        [Full Project](https://github.com/Real-VeerSandhu/SCIFAA-COVID-19-Project)
+        """)
 st.write('----')
 
 def main():
