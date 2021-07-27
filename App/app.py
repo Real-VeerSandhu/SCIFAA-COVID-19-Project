@@ -33,6 +33,10 @@ def main():
         st.plotly_chart(fig3)
     with col4:
         st.plotly_chart(fig4)
+    
+
+
+    
 
 if __name__ ==  '__main__':
     main()
