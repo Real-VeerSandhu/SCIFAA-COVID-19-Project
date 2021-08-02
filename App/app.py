@@ -35,17 +35,17 @@ def main():
     elif nav == 'Analysis Charts':
         col1, col2 = st.beta_columns([1,1])
         with col1:
-            st.plotly_chart(figW)
             st.plotly_chart(fig1)
         with col2:
-            st.plotly_chart(figW2)
             st.plotly_chart(fig2)
 
         col3, col4 = st.beta_columns([1,1])
         with col3:
             st.plotly_chart(fig3)
+            st.plotly_chart(figW)
         with col4:
             st.plotly_chart(fig4)
+            st.plotly_chart(figW2)
     elif nav == 'Data Modelling':
         st.write('### Models built off Machine Learning and AI')
         col5, col6 = st.beta_columns([2,1])       
