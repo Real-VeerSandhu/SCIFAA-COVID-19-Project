@@ -29,8 +29,8 @@ rel = px.line(final1, x='Cases', y='Deaths', color='Type', title = 'Cases vs Dea
 def main():
     nav = st.selectbox('Navigation', ['Home', 'Analysis Charts', 'Data Modelling'])
     if nav == 'Home':
-        st.markdown('### Welcome')
-        st.write('This app contains all developments in the Canada v.s. USA COVID-19 Analysis. The project was done by Veer Sandhu as a Data Science intern at SCI FAA')
+        st.markdown('### Welcome!')
+        st.write('This app contains all developments in the Canada v.s. USA COVID-19 Analysis. This project was done by Veer Sandhu as a Data Science intern at SCI FAA')
         st.markdown('*Write-Up (To Be Attached)*')
     elif nav == 'Analysis Charts':
         col1, col2 = st.beta_columns([1,1])
