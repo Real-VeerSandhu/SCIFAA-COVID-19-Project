@@ -18,6 +18,14 @@ final1 = pd.read_csv('App/Data/linear-graph.csv')
 model = load('App/Models/lin_model1.joblib')
 combined = pd.read_csv('App/Data/out-data.csv')
 
+figW = px.line(combined, x='Date', y='Cases', color='Country', title = "Confirmed Cases Over Time in the USA vs Canada")
+figW2 = px.line(combined, x='Date', y='Deaths', color='Country', title = "Confirmed Deaths Over Time in the USA vs Canada")
+fig1 = px.line(combined, x='Date', y='Cases/Population', color='Country', title = "Cases per 100 People in the USA vs Canada", labels={'Cases/Population': 'Cases per 100 People'})
+fig2 = px.line(combined, x='Date', y='Diff Cases/Population', color='Country', title = "Increase/Decrease in Cases per 100 People in the USA vs Canada", labels={'Diff Cases/Population': 'Change in Cases per 100 People'})
+fig3 = px.line(combined, x='Date', y='Deaths/Cases', color='Country', title = "Deaths per 100 Cases in the USA vs Canada", labels={'Deaths/Cases': 'Deaths per 100 Cases'})
+fig4 = px.line(combined, x='Date', y='Tests/Cases', color='Country', title = "Tests per Case in the USA vs Canada", labels={'Tests/Cases': 'Tests per Case'})
+rel = px.line(final1, x='Cases', y='Deaths', color='Type', title = 'Cases vs Deaths (Linear Model vs True Data)')
+
 def main():
     nav = st.selectbox('Navigation', ['Home', 'Analysis Charts', 'Data Modelling'])
     if nav == 'Home':
@@ -25,13 +33,6 @@ def main():
         st.write('This app contains all developments in the Canada v.s. USA COVID-19 Analysis. The project was done by Veer Sandhu as a Data Science intern at SCI FAA')
         st.markdown('*Write-Up (To Be Attached)*')
     elif nav == 'Analysis Charts':
-        figW = px.line(combined, x='Date', y='Cases', color='Country', title = "Confirmed Cases Over Time in the USA vs Canada")
-        figW2 = px.line(combined, x='Date', y='Deaths', color='Country', title = "Confirmed Deaths Over Time in the USA vs Canada")
-        fig1 = px.line(combined, x='Date', y='Cases/Population', color='Country', title = "Cases per 100 People in the USA vs Canada", labels={'Cases/Population': 'Cases per 100 People'})
-        fig2 = px.line(combined, x='Date', y='Diff Cases/Population', color='Country', title = "Increase/Decrease in Cases per 100 People in the USA vs Canada", labels={'Diff Cases/Population': 'Change in Cases per 100 People'})
-        fig3 = px.line(combined, x='Date', y='Deaths/Cases', color='Country', title = "Deaths per 100 Cases in the USA vs Canada", labels={'Deaths/Cases': 'Deaths per 100 Cases'})
-        fig4 = px.line(combined, x='Date', y='Tests/Cases', color='Country', title = "Tests per Case in the USA vs Canada", labels={'Tests/Cases': 'Tests per Case'})
-
         col1, col2 = st.beta_columns([1,1])
         with col1:
             st.plotly_chart(figW)
@@ -47,7 +48,6 @@ def main():
             st.plotly_chart(fig4)
     elif nav == 'Data Modelling':
         st.write('### Models built off Machine Learning and AI')
-        rel = px.line(final1, x='Cases', y='Deaths', color='Type', title = 'Cases vs Deaths (Linear Model vs True Data)')
         col5, col6 = st.beta_columns([2,1])       
         with col5:
             st.plotly_chart(rel)
