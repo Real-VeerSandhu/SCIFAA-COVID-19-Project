@@ -10,7 +10,7 @@ st.markdown("""
 # Canada v.s. USA COVID-19 Analysis
 """)
 st.write("""
-        [Full Project](https://github.com/Real-VeerSandhu/SCIFAA-COVID-19-Project)
+        [Project Repository](https://github.com/Real-VeerSandhu/SCIFAA-COVID-19-Project)
         """)
 st.write('----')
 
