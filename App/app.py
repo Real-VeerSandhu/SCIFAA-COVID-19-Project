@@ -4,7 +4,7 @@ import pandas as pd
 from joblib import load
 
 
-st.set_page_config(page_title="COVID-19 Graph App", page_icon="📈", layout='wide', initial_sidebar_state="collapsed")
+st.set_page_config(page_title="CAN-USA COVID-19 Analysis", page_icon="📈", layout='wide', initial_sidebar_state="collapsed")
 
 st.markdown("""
 # Canada v.s. USA COVID-19 Analysis
