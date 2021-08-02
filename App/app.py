@@ -1,6 +1,7 @@
 import streamlit as st 
 import plotly.express as px
 import pandas as pd
+from joblib import load
 
 
 st.set_page_config(page_title="COVID-19 Graph App", page_icon="📈", layout='wide', initial_sidebar_state="collapsed")
@@ -13,15 +14,17 @@ st.write("""
         """)
 st.write('----')
 
+final1 = pd.read_csv('App/Data/linear-graph.csv')
+model = load('App/Models/lin_model1.joblib')
+combined = pd.read_csv('App/Data/out-data.csv')
+
 def main():
-    nav = st.selectbox('Navigation', ['Home', 'Analysis Charts', 'Data Model'])
+    nav = st.selectbox('Navigation', ['Home', 'Analysis Charts', 'Data Modelling'])
     if nav == 'Home':
         st.markdown('### Welcome')
         st.write('This app contains all developments in the Canada v.s. USA COVID-19 Analysis. The project was done by Veer Sandhu as a Data Science intern at SCI FAA')
         st.markdown('*Write-Up (To Be Attached)*')
     elif nav == 'Analysis Charts':
-        combined = pd.read_csv('App/Data/out-data.csv')
-        
         figW = px.line(combined, x='Date', y='Cases', color='Country', title = "Confirmed Cases Over Time in the USA vs Canada")
         figW2 = px.line(combined, x='Date', y='Deaths', color='Country', title = "Confirmed Deaths Over Time in the USA vs Canada")
         fig1 = px.line(combined, x='Date', y='Cases/Population', color='Country', title = "Cases per 100 People in the USA vs Canada", labels={'Cases/Population': 'Cases per 100 People'})
@@ -42,11 +45,20 @@ def main():
             st.plotly_chart(fig3)
         with col4:
             st.plotly_chart(fig4)
-    elif nav == 'Data Model':
-        st.write('Data Modelling with Machine Learning and AI')
-
-    
-
+    elif nav == 'Data Modelling':
+        st.write('### Models built off Machine Learning and AI')
+        rel = px.line(final1, x='Cases', y='Deaths', color='Type', title = 'Cases vs Deaths (Linear Model vs True Data)')
+        col5, col6 = st.beta_columns([2,1])       
+        with col5:
+            st.plotly_chart(rel)
+            
+        with col6:
+            st.write('Interactive Model (User Input)')
+            user_in = st.number_input('Enter the Total Cases', 0, 2000000000)
+            user_in = 452638
+            if st.button('Run Model'):
+                pred = model.predict([[user_in]])
+                st.write('Model Prediction (Deaths):', pred[0][0])
 
     
 
