@@ -53,7 +53,7 @@ def main():
             st.plotly_chart(rel)
             
         with col6:
-            st.write('Interactive Model (User Input)')
+            st.write('Interactive Model (Predicts the Death Count)')
             user_in = st.number_input('Enter the Total Cases', 0, 2000000000)
             user_in = 452638
             if st.button('Run Model'):
