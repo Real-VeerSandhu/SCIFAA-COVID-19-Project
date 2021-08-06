@@ -61,3 +61,4 @@ def main():
                 st.write('Model Prediction (Deaths):', pred[0][0])
 if __name__ ==  '__main__':
     main()
+    
