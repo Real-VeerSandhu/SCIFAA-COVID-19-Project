@@ -58,7 +58,7 @@ def main():
             user_in = 452638
             if st.button('Run Model'):
                 pred = model.predict([[user_in]])
-                st.write('Model Prediction (Deaths):', pred[0][0])
+                st.write('Model Prediction (Deaths): ', pred[0][0])
 if __name__ ==  '__main__':
     main()
     
