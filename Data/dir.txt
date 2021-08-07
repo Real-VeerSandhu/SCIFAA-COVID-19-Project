@@ -1,4 +1,1 @@
-World Data: Covid-19 Repo, our-world-can.csv
-
-
-
+World Data: Covid-19 Repo, our-world-can.csv, Canada gov, USA gov
