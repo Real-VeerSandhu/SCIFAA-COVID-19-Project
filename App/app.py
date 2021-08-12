@@ -1,6 +1,7 @@
 import streamlit as st 
 import plotly.express as px
 import pandas as pd
+import base64
 from joblib import load
 
 
@@ -10,7 +11,7 @@ st.markdown("""
 # Canada v.s. USA COVID-19 Analysis
 """)
 st.write("""
-        [Project Repository](https://github.com/Real-VeerSandhu/SCIFAA-COVID-19-Project)
+        [Project Repository (code)](https://github.com/Real-VeerSandhu/SCIFAA-COVID-19-Project)
         """)
 st.write('----')
 
@@ -26,12 +27,26 @@ fig3 = px.line(combined, x='Date', y='Deaths/Cases', color='Country', title = "D
 fig4 = px.line(combined, x='Date', y='Tests/Cases', color='Country', title = "Tests per Case in the USA vs Canada", labels={'Tests/Cases': 'Tests per Case'})
 rel = px.line(final1, x='Cases', y='Deaths', color='Type', title = 'Cases vs Deaths in Canada (Linear Model vs True Data)')
 
+# def displayPDF(file):
+#     # Opening file from file path
+#     with open(file, "rb") as f:
+#         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+
+#     # Embedding PDF in HTML
+#     pdf_display = F'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
+
+#     # Displaying File
+#     st.markdown(pdf_display, unsafe_allow_html=True)
+
 def main():
     nav = st.selectbox('Navigation', ['Home', 'Analysis Charts', 'Data Modelling'])
     if nav == 'Home':
         st.markdown('### Welcome!')
         st.write('This app contains all developments in the Canada v.s. USA COVID-19 Analysis. This project was done by Veer Sandhu as a Data Science intern at SCI FAA')
-        st.markdown('*Write-Up (To Be Attached)*')
+        with open('App/Data/report.pdf', "rb") as f:
+                b64 = base64.b64encode(f.read()).decode('utf-8')        
+        a = f'<a href="data:file/csv;base64,{b64}" download="Canada vs USA COVID-19 Analysis Report - Veer Sandhu.pdf">Download Project Report</a>'
+        st.markdown(a, unsafe_allow_html=True)
     elif nav == 'Analysis Charts':
         col1, col2 = st.beta_columns([1,1])
         with col1:
