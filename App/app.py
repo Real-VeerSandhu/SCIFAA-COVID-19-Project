@@ -24,7 +24,7 @@ fig1 = px.line(combined, x='Date', y='Cases/Population', color='Country', title 
 fig2 = px.line(combined, x='Date', y='Diff Cases/Population', color='Country', title = "Increase/Decrease in Cases per 100 People in the USA vs Canada", labels={'Diff Cases/Population': 'Change in Cases per 100 People'})
 fig3 = px.line(combined, x='Date', y='Deaths/Cases', color='Country', title = "Deaths per 100 Cases in the USA vs Canada", labels={'Deaths/Cases': 'Deaths per 100 Cases'})
 fig4 = px.line(combined, x='Date', y='Tests/Cases', color='Country', title = "Tests per Case in the USA vs Canada", labels={'Tests/Cases': 'Tests per Case'})
-rel = px.line(final1, x='Cases', y='Deaths', color='Type', title = 'Cases vs Deaths (Linear Model vs True Data)')
+rel = px.line(final1, x='Cases', y='Deaths', color='Type', title = 'Cases vs Deaths in Canada (Linear Model vs True Data)')
 
 def main():
     nav = st.selectbox('Navigation', ['Home', 'Analysis Charts', 'Data Modelling'])
