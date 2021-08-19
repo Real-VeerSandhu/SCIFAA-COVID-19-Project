@@ -27,17 +27,6 @@ fig3 = px.line(combined, x='Date', y='Deaths/Cases', color='Country', title = "D
 fig4 = px.line(combined, x='Date', y='Tests/Cases', color='Country', title = "Tests per Case in the USA vs Canada", labels={'Tests/Cases': 'Tests per Case'})
 rel = px.line(final1, x='Cases', y='Deaths', color='Type', title = 'Cases vs Deaths in Canada (Linear Model vs True Data)')
 
-# def displayPDF(file):
-#     # Opening file from file path
-#     with open(file, "rb") as f:
-#         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-
-#     # Embedding PDF in HTML
-#     pdf_display = F'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
-
-#     # Displaying File
-#     st.markdown(pdf_display, unsafe_allow_html=True)
-
 def main():
     nav = st.selectbox('Navigation', ['Home', 'Analysis Charts', 'Data Modelling'])
     if nav == 'Home':
