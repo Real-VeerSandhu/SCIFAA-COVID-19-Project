@@ -64,4 +64,4 @@ def main():
                 pred = model.predict([[user_in]])
                 st.write('Model Prediction (Deaths): ', pred[0][0])
 if __name__ ==  '__main__':
-    main()
+    main() 
