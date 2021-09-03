@@ -9,10 +9,8 @@ st.set_page_config(page_title="CAN-USA COVID-19 Analysis", page_icon="📈", lay
 
 st.markdown("""
 # Canada v.s. USA COVID-19 Analysis
+A data science project bringing forth insight on the fight against the pandemic\n
 """)
-st.write("""
-        [Project Repository (code)](https://github.com/Real-VeerSandhu/SCIFAA-COVID-19-Project)
-        """)
 st.write('----')
 
 final1 = pd.read_csv('App/Data/linear-graph.csv')
@@ -30,26 +28,30 @@ rel = px.line(final1, x='Cases', y='Deaths', color='Type', title = 'Cases vs Dea
 def main():
     nav = st.selectbox('Navigation', ['Home', 'Analysis Charts', 'Data Modelling'])
     if nav == 'Home':
-        st.markdown('### Welcome!')
-        st.write('This app contains all developments in the Canada v.s. USA COVID-19 Analysis. This project was done by Veer Sandhu as a Data Science intern at SCI FAA')
-        with open('App/Data/report.pdf', "rb") as f:
+        st.write('### This interactive app contains all developments as part of the Canada v.s. USA COVID-19 Analysis.')
+        st.write('Completed by Veer Sandhu as a Data Science Intern at SCI FAA')
+        st.write('*The COVID-19 pandemic has impacted every nation on earth and has been dealt with through countless methods and strategies. Investigating where countries succeeded and where they failed can provide valuable information on resource management, prioritization, planning, and organization. Canada and the U.S may seem similar at first glance, however, they are different economically, socially, and politically. This project compares the two countries regarding how they dealt with the pandemic and which one took the better approach.*')
+        with open('App/Data/final_report.pdf', "rb") as f:
                 b64 = base64.b64encode(f.read()).decode('utf-8')        
-        a = f'<a href="data:file/csv;base64,{b64}" download="Canada vs USA COVID-19 Analysis Report - Veer Sandhu.pdf">Download Project Report</a>'
+        a = f'<a href="data:file/csv;base64,{b64}" download="Canada vs USA COVID-19 Analysis Report - Veer Sandhu.pdf">Download the Project Report</a>'
         st.markdown(a, unsafe_allow_html=True)
+        st.write("""
+        [View the Code Repository](https://github.com/Real-VeerSandhu/SCIFAA-COVID-19-Project)
+        """)
     elif nav == 'Analysis Charts':
         col1, col2 = st.beta_columns([1,1])
         with col1:
-            st.plotly_chart(fig1)
+            st.plotly_chart(figW)
         with col2:
-            st.plotly_chart(fig2)
+            st.plotly_chart(figW2)
 
         col3, col4 = st.beta_columns([1,1])
         with col3:
+            st.plotly_chart(fig1)
             st.plotly_chart(fig3)
-            st.plotly_chart(figW)
         with col4:
+            st.plotly_chart(fig2)
             st.plotly_chart(fig4)
-            st.plotly_chart(figW2)
     elif nav == 'Data Modelling':
         st.write('### Models built off Machine Learning and AI')
         col5, col6 = st.beta_columns([2,1])       
