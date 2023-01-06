@@ -1,7 +1,7 @@
 # Canada v.s. USA COVID-19 Analysis
 Summer 2021 Data Science Internship Project
 
-**Interactive Project App**: [canada-usa-covid19-analysis.herokuapp.com](https://canada-usa-covid19-analysis.herokuapp.com/)
+**Interactive Project App**: [canada-usa-covid19-analysis-app](https://real-veersandhu-scifaa-covid-19-project-appapp-04oku5.streamlit.app/)
 
 **Program Links**: [Full Analysis Notebook](https://github.com/Real-VeerSandhu/SCIFAA-COVID-19-Project/blob/master/Analysis-Notebooks/main-analysis(static).ipynb) & [Data Modelling Notebook](https://github.com/Real-VeerSandhu/SCIFAA-COVID-19-Project/blob/master/Models/main-modeling.ipynb)
 
